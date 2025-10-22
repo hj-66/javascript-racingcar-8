@@ -1,15 +1,19 @@
-import { Console } from '@woowacourse/mission-utils'
+import { Console } from '@woowacourse/mission-utils';
 
 class App {
   async run() {
-    const cars = await this.getCarsInput();
+    const [cars, executionResult] = await this.getCarsInput();
     const numberAttempts = await this.getNumberInput();
   }
 
   async getCarsInput() {
     const cars = await Console.readLineAsync('');
     const splitCars = cars.split(',');
-    return splitCars;
+    let executionResult = [];
+    splitCars.forEach((splitCar) => {
+      executionResult.push({ [splitCar]: 0 });
+    });
+    return [splitCars, executionResult];
   }
 
   async getNumberInput() {
