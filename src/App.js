@@ -28,7 +28,15 @@ class App {
         const randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
         if (randomNumber >= 4) executionResult[index] += 1;
       })
+      this.printRace(cars, executionResult);
     }
+  }
+
+  printRace(cars, executionResult) {
+    cars.forEach((car, index) => {
+      Console.print(`${car} : ${'-'.repeat(executionResult[index])}`);
+    })
+    Console.print('');
   }
 }
 
