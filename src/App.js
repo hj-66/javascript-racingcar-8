@@ -1,9 +1,10 @@
-import { Console } from '@woowacourse/mission-utils';
+import { Console, MissionUtils } from '@woowacourse/mission-utils';
 
 class App {
   async run() {
     const [cars, executionResult] = await this.getCarsInput();
     const numberAttempts = await this.getNumberInput();
+    this.runRace(cars, executionResult, numberAttempts);
   }
 
   async getCarsInput() {
@@ -11,7 +12,7 @@ class App {
     const splitCars = cars.split(',');
     let executionResult = [];
     splitCars.forEach((splitCar) => {
-      executionResult.push({ [splitCar]: 0 });
+      executionResult.push(0);
     });
     return [splitCars, executionResult];
   }
@@ -19,6 +20,15 @@ class App {
   async getNumberInput() {
     const numberAttempts = await Console.readLineAsync('');
     return numberAttempts;
+  }
+
+  runRace(cars, executionResult, numberAttempts) {
+    for (let i = 0; i < numberAttempts; i++) {
+      cars.forEach((car, index) => {
+        const randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) executionResult[index] += 1;
+      })
+    }
   }
 }
 
