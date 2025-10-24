@@ -1,4 +1,5 @@
 import { Console, MissionUtils } from '@woowacourse/mission-utils';
+import { MESSAGES } from './constants.js';
 
 class App {
   async run() {
@@ -9,7 +10,7 @@ class App {
   }
 
   async getCarsInput() {
-    const cars = await Console.readLineAsync('경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n');
+    const cars = await Console.readLineAsync(MESSAGES.INPUT.INPUT_CARS);
     const splitCars = cars.split(',');
     let executionResult = [];
     splitCars.forEach((splitCar) => {
@@ -19,13 +20,13 @@ class App {
   }
 
   async getNumberInput() {
-    const numberAttempts = await Console.readLineAsync('시도할 횟수는 몇 회인가요?\n');
+    const numberAttempts = await Console.readLineAsync(MESSAGES.INPUT.INPUT_ATTEMPTS);
     return numberAttempts;
   }
 
   runRace(cars, executionResult, numberAttempts) {
     Console.print('');
-    Console.print('실행 결과');
+    Console.print(MESSAGES.OUTPUT.OUTPUT_RACE);
     for (let i = 0; i < numberAttempts; i++) {
       cars.forEach((car, index) => {
         const randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
@@ -54,7 +55,7 @@ class App {
       printValue += winner;
       if (index != winners.length - 1) printValue += ', ';
     })
-    Console.print('최종 우승자 : ' + printValue);
+    Console.print(MESSAGES.OUTPUT.OUTPUT_WINNER + printValue);
   }
 }
 
