@@ -1,12 +1,17 @@
 import { Console, MissionUtils } from '@woowacourse/mission-utils';
 import { MESSAGES } from './constants.js';
+import { validateAllowedCharacter, validateNameLength } from './validation.js';
 
 class App {
   async run() {
-    const [cars, executionResult] = await this.getCarsInput();
-    const numberAttempts = await this.getNumberInput();
-    this.runRace(cars, executionResult, numberAttempts);
-    this.printResult(cars, executionResult);
+    try {
+      const [cars, executionResult] = await this.getCarsInput();
+      const numberAttempts = await this.getNumberInput();
+      this.runRace(cars, executionResult, numberAttempts);
+      this.printResult(cars, executionResult);
+    } catch (error) {
+      throw error;
+    }
   }
 
   async getCarsInput() {
@@ -15,6 +20,8 @@ class App {
     let executionResult = [];
     splitCars.forEach((splitCar) => {
       executionResult.push(0);
+      validateAllowedCharacter(splitCar);
+      validateNameLength(splitCar);
     });
     return [splitCars, executionResult];
   }

@@ -11,7 +11,7 @@ export const MESSAGES = {
     },
 
     ERROR: {
-        ERROR_NAME_CHARACTER: '[ERROR] 적절하지 않은 기호가 들어있습니다.',
-        ERROR_NAME_LENGTH: '[ERROR] 자동차 이름은 5글자 이내여야 합니다.'
+        ERROR_NAME_CHARACTER: '[ERROR] 유효하지 않은 이름입니다: ',
+        ERROR_NAME_LENGTH: '[ERROR] 자동차 이름은 5글자 이내여야 합니다: '
     }
 }
