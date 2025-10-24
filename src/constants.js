@@ -8,5 +8,10 @@ export const MESSAGES = {
     OUTPUT: {
         OUTPUT_RACE: '실행 결과',
         OUTPUT_WINNER: '최종 우승자 : '
+    },
+
+    ERROR: {
+        ERROR_NAME_CHARACTER: '[ERROR] 적절하지 않은 기호가 들어있습니다.',
+        ERROR_NAME_LENGTH: '[ERROR] 자동차 이름은 5글자 이내여야 합니다.'
     }
 }
