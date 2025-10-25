@@ -37,16 +37,21 @@ class App {
     return numberAttempts;
   }
 
-  runRace(cars, executionResult, numberAttempts) {
+  runRace(cars, execution_result, number_attempts) {
     Console.print("");
     Console.print(MESSAGES.OUTPUT.OUTPUT_RACE);
-    for (let i = 0; i < numberAttempts; i++) {
-      cars.forEach((car, index) => {
-        const randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) executionResult[index] += 1;
-      });
-      this.printRace(cars, executionResult);
+
+    for (let i = 0; i < number_attempts; i++) {
+      this.moveCars(cars, execution_result);
+      this.printRace(cars, execution_result);
     }
+  }
+
+  moveCars(cars, execution_result) {
+    cars.forEach((_, index) => {
+      const random_number = MissionUtils.Random.pickNumberInRange(0, 9);
+      if (random_number >= 4) execution_result[index] += 1;
+    });
   }
 
   printRace(cars, executionResult) {
@@ -56,17 +61,13 @@ class App {
     Console.print("");
   }
 
-  printResult(cars, executionResult) {
-    let maxNumber = 0;
-    let winners = [];
-    executionResult.forEach((result, index) => {
-      if (result > maxNumber) {
-        winners = [];
-        maxNumber = result;
-      }
-      if (result >= maxNumber) winners.push(cars[index]);
-    });
-    Console.print(MESSAGES.OUTPUT.OUTPUT_WINNER + winners.join(","));
+  printResult(cars, execution_result) {
+    const max_score = Math.max(...execution_result);
+    const winners = cars.filter(
+      (_, index) => execution_result[index] === max_score
+    );
+
+    Console.print(`${MESSAGES.OUTPUT.OUTPUT_WINNER}${winners.join(",")}`);
   }
 }
 
