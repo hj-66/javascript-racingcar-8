@@ -15,3 +15,9 @@ export const validateAllowedCharacter = (carName) => {
         throw new Error(MESSAGES.ERROR.ERROR_NAME_CHARACTER + carName);
     }
 }
+
+export const validateNumberAttempts = (numberAttempts) => {
+    if (isNaN(numberAttempts) || numberAttempts <= 0) {
+        throw new Error(MESSAGES.ERROR.ERROR_INVALID_NUMBER + numberAttempts);
+    }
+}
