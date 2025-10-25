@@ -57,12 +57,7 @@ class App {
       if (result > maxNumber) { winners = []; maxNumber = result; }
       if (result >= maxNumber) winners.push(cars[index]);
     })
-    let printValue = '';
-    winners.forEach((winner, index) => {
-      printValue += winner;
-      if (index != winners.length - 1) printValue += ', ';
-    })
-    Console.print(MESSAGES.OUTPUT.OUTPUT_WINNER + printValue);
+    Console.print(MESSAGES.OUTPUT.OUTPUT_WINNER + winners.join(','));
   }
 }
 
