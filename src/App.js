@@ -9,32 +9,34 @@ import {
 class App {
   async run() {
     try {
-      const [cars, executionResult] = await this.getCarsInput();
-      const numberAttempts = await this.getNumberInput();
-      this.runRace(cars, executionResult, numberAttempts);
-      this.printResult(cars, executionResult);
+      const cars = await this.getCarsInput();
+      const number_attempts = await this.getNumberInput();
+      const execution_result = new Array(cars.length).fill(0);
+
+      this.runRace(cars, execution_result, number_attempts);
+      this.printResult(cars, execution_result);
     } catch (error) {
       throw error;
     }
   }
 
   async getCarsInput() {
-    const cars = await Console.readLineAsync(MESSAGES.INPUT.INPUT_CARS);
-    const splitCars = cars.split(",");
-    let executionResult = [];
-    splitCars.forEach((splitCar) => {
-      executionResult.push(0);
-      validateAllowedCharacter(splitCar);
-      validateNameLength(splitCar);
+    const input = await Console.readLineAsync(MESSAGES.INPUT.INPUT_CARS);
+    const cars = input.split(",").map((car) => car.trim());
+
+    cars.forEach((car) => {
+      validateAllowedCharacter(car);
+      validateNameLength(car);
     });
-    return [splitCars, executionResult];
+
+    return cars;
   }
 
   async getNumberInput() {
     const input = await Console.readLineAsync(MESSAGES.INPUT.INPUT_ATTEMPTS);
-    const numberAttempts = Number(input);
-    validateNumberAttempts(numberAttempts);
-    return numberAttempts;
+    const number_attempts = Number(input);
+    validateNumberAttempts(number_attempts);
+    return number_attempts;
   }
 
   runRace(cars, execution_result, number_attempts) {
