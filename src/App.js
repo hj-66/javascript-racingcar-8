@@ -54,9 +54,10 @@ class App {
     });
   }
 
-  printRace(cars, executionResult) {
+  printRace(cars, execution_result) {
     cars.forEach((car, index) => {
-      Console.print(`${car} : ${"-".repeat(executionResult[index])}`);
+      const track = "-".repeat(execution_result[index]);
+      Console.print(`${car} : ${track}`);
     });
     Console.print("");
   }
