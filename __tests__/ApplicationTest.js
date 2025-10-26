@@ -57,4 +57,12 @@ describe("자동차 경주", () => {
     // then
     await expect(app.run()).rejects.toThrow("[ERROR]");
   });
+
+  test("자동차 이름 유효성 검사", async () => {
+    const inputs = ["po!bi,woni"];
+    mockQuestions(inputs);
+
+    const app = new App();
+    await expect(app.run()).rejects.toThrow("[ERROR]"); // 특수문자 포함 시 예외
+  });
 });
