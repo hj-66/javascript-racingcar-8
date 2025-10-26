@@ -65,4 +65,12 @@ describe("자동차 경주", () => {
     const app = new App();
     await expect(app.run()).rejects.toThrow("[ERROR]"); // 특수문자 포함 시 예외
   });
+
+  test("시도 횟수 유효성 검사", async () => {
+    const inputs = ["pobi,woni", "0"];
+    mockQuestions(inputs);
+
+    const app = new App();
+    await expect(app.run()).rejects.toThrow("[ERROR]"); // 0회 입력 시 예외
+  });
 });
