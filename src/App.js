@@ -1,5 +1,5 @@
 import { Console, MissionUtils } from "@woowacourse/mission-utils";
-import { MESSAGES } from "./constants.js";
+import { MESSAGES } from "./utils/constants.js";
 import {
   validateAllowedCharacter,
   validateNameLength,

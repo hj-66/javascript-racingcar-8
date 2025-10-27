@@ -1,4 +1,4 @@
-import { MESSAGES } from "./constants.js";
+import { MESSAGES } from './utils/constants.js';
 
 export const validateNameLength = (carName) => {
     const carNameLength = carName.length;
