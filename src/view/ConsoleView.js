@@ -23,6 +23,6 @@ export default class ConsoleView {
   }
 
   printWinners(winners) {
-    Console.print(`${MESSAGES.OUTPUT.OUTPUT_WINNER}${winners.join(",")}`);
+    Console.print(`${MESSAGES.OUTPUT.OUTPUT_WINNER}${winners.join(", ")}`);
   }
 }
