@@ -1,7 +1,8 @@
 import { MESSAGES } from "./constants.js";
 
 export const validateNameDuplication = (cars) => {
-  if (new Set(cars).size !== cars.length) {
+  const uniqueNames = new Set(cars);
+  if (uniqueNames.size !== cars.length) {
     throw new Error(MESSAGES.ERROR.ERROR_NAME_DUPLICATION + cars);
   }
 };
