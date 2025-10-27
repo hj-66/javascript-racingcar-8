@@ -9,6 +9,6 @@ export default class Car {
   }
 
   getTrack() {
-    return "-".repeat(this.position);
+    return '-'.repeat(this.position);
   }
 }

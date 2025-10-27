@@ -1,5 +1,5 @@
-import Car from "./Car.js";
-import { MissionUtils } from "@woowacourse/mission-utils";
+import Car from './Car.js';
+import { MissionUtils } from '@woowacourse/mission-utils';
 
 export default class RacingGame {
   constructor(carNames) {
