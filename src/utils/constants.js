@@ -12,6 +12,7 @@ export const MESSAGES = {
   },
 
   ERROR: {
+    ERROR_NAME_DUPLICATION: "[ERROR] 자동차 이름이 중복됩니다.",
     ERROR_NAME_CHARACTER: "[ERROR] 유효하지 않은 이름입니다: ",
     ERROR_NAME_LENGTH: "[ERROR] 자동차 이름은 5글자 이내여야 합니다: ",
     ERROR_INVALID_NUMBER: "[ERROR] 적절하지 않은 시도 횟수입니다: ",

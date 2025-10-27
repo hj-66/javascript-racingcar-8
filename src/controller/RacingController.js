@@ -2,6 +2,7 @@ import RacingGame from "../model/RacingGame.js";
 import ConsoleView from "../view/ConsoleView.js";
 import {
   validateAllowedCharacter,
+  validateNameDuplication,
   validateNameLength,
   validateNumberAttempts,
 } from "../utils/validation.js";
@@ -13,6 +14,7 @@ export default class RacingController {
 
   async start() {
     const carNames = await this.view.readCarNames();
+    validateNameDuplication(carNames);
     carNames.forEach((name) => {
       validateAllowedCharacter(name);
       validateNameLength(name);
