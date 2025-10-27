@@ -26,3 +26,22 @@
 1. ,가 아닌 다른 기호가 있을 경우, Error 처리
 2. 자동차 이름이 5글자가 넘을 경우, Error 처리
 3. 시도 횟수가 0이나 음수일 경우, Error 처리
+
+<br>
+
+## 구조 정리
+
+### MVC 패턴 기반 구조
+- **Model**  
+  `Car.js`: 자동차의 이름과 이동 거리 관리  
+  `Race.js`: 전체 자동차 목록과 경기 진행 로직 담당
+
+- **View**  
+  `GameView.js`: 사용자 입력 및 출력 메시지 관리 (Console)
+
+- **Controller**  
+  `GameController.js`: 게임 전체 흐름 제어 (입력 → 실행 → 결과 출력)
+
+- **Utils**  
+  `validation.js`: 이름, 시도 횟수 검증  
+  `constants.js`: 메시지 텍스트, 설정값 관리
