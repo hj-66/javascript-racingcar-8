@@ -1,10 +1,10 @@
-import RacingGame from '../model/RacingGame.js';
-import ConsoleView from '../view/ConsoleView.js';
+import RacingGame from "../model/RacingGame.js";
+import ConsoleView from "../view/ConsoleView.js";
 import {
   validateAllowedCharacter,
   validateNameLength,
   validateNumberAttempts,
-} from '../utils/validation.js';
+} from "../utils/validation.js";
 
 export default class RacingController {
   constructor() {

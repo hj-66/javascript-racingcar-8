@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import { MESSAGES } from '../utils/messages.js';
+import { MESSAGES } from '../utils/constants.js';
 
 export default class ConsoleView {
   async readCarNames() {
